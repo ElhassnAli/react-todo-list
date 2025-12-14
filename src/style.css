@@ -62,6 +62,7 @@ body {
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 24px;
+  margin: auto;
 }
 
 /* Left column: header + quick add */
@@ -286,5 +287,6 @@ li.item:hover {
 @media (max-width: 880px) {
   .app {
     grid-template-columns: 1fr;
+    width: 100%;
   }
 }
