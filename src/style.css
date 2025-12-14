@@ -62,7 +62,6 @@ body {
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 24px;
-  margin: auto;
 }
 
 /* Left column: header + quick add */
