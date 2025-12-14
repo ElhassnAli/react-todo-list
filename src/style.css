@@ -286,6 +286,5 @@ li.item:hover {
 @media (max-width: 880px) {
   .app {
     grid-template-columns: 1fr;
-    padding: 18px;
   }
 }
