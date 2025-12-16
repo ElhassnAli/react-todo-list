@@ -27,11 +27,10 @@ function InputRow({ tasks, onSetTasks }) {
     if (value === "") return;
     const now = new Date();
     const date = now.toLocaleDateString();
-    const time = now.toLocaleTimeString();
     const task = {
       id: Date.now(),
       name: value,
-      date: `${date} ${time}`,
+      date: date,
       done: false,
     };
     onSetTasks([...tasks, task]);

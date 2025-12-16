@@ -197,7 +197,7 @@ ul {
   gap: 10px;
   overflow: auto;
   width: 100%;
-  max-width: 396px;
+  max-width: 100%;
 }
 
 li.item {
@@ -206,7 +206,7 @@ li.item {
     rgba(255, 255, 255, 0.015),
     rgba(255, 255, 255, 0.01)
   );
-  padding: 12px;
+  padding: 5px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -234,7 +234,7 @@ li.item:hover {
 }
 .title {
   flex: 1;
-  font-size: 15px;
+  font-size: 14px;
 }
 .title.done {
   opacity: 0.5;
@@ -246,7 +246,7 @@ li.item:hover {
 }
 .actions {
   display: flex;
-  gap: 8px;
+  gap: 2px;
 }
 .icon-btn {
   background: transparent;

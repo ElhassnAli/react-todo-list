@@ -80,10 +80,8 @@ function Task({ task, onSetTasks, onDeleteTask, onEditTask }) {
         }}
       />
       <div className={`title ${task.done ? "done" : ""}`}>{task.name}</div>
+      <div className="meta">{task.date}</div>
       <div className="actions">
-        <button className="icon-btn" title={task.date}>
-          ❗
-        </button>
         <button
           className="icon-btn"
           title="Delete"
