@@ -67,7 +67,7 @@ export default function App() {
   const filteredTasks = getFilteredTasks();
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-col gap-4 rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] p-3 shadow-glow backdrop-blur-[8px] md:grid md:grid-cols-[minmax(0,360px)_minmax(0,1fr)] md:gap-6 md:p-8 lg:max-w-6xl">
+    <main className="mx-auto flex  md:h-[70dvh] flex-col gap-4 rounded-3xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] p-3 shadow-glow backdrop-blur-sm md:flex-row md:w-7xl  md:p-6 ">
       <Panel tasks={tasks} onSetTasks={setTasks} onClear={clearAllTasks} />
       <TasksList
         tasks={filteredTasks}

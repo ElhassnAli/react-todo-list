@@ -11,7 +11,7 @@ export default function TasksList({
   onEditTask,
 }) {
   return (
-    <section className="flex min-h-[320px] flex-col gap-3 rounded-[16px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] p-3 md:p-5">
+    <section className="flex flex-1 min-h-80 flex-col gap-3 rounded-2xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] p-3 md:p-5">
       <Header onQuerySearch={onQuerySearch} querySearch={querySearch} />
       <AllTasks
         tasks={tasks}
@@ -37,7 +37,7 @@ function Header({ querySearch, onQuerySearch }) {
       </h2>
       <div className="flex items-center gap-2.5">
         <input
-          className="w-full rounded-[10px] border border-white/10 bg-transparent px-3 py-2.5 text-inherit outline-none sm:min-w-[180px]"
+          className="w-full rounded-[10px] border border-white/10 bg-transparent px-3 py-2.5 text-inherit outline-none sm:min-w-45"
           placeholder="Search tasks"
           value={querySearch}
           onChange={(e) => onQuerySearch(e.target.value)}
@@ -63,8 +63,8 @@ function AllTasks({ tasks, onSetTasks, onDeleteTask, onEditTask }) {
 }
 function Task({ task, onSetTasks, onDeleteTask, onEditTask }) {
   return (
-    <li className="flex flex-wrap items-center gap-2 rounded-[12px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.015),rgba(255,255,255,0.01))] p-2 transition-transform duration-150 hover:-translate-y-0.5 sm:gap-3 sm:p-[6px]">
-      <div className="h-8 w-2 rounded-full bg-gradient-to-b from-cyan-500 to-violet-600 sm:h-9"></div>
+    <li className="flex flex-wrap items-center gap-2 rounded-xl border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.015),rgba(255,255,255,0.01))] p-2 transition-transform duration-150 hover:-translate-y-0.5 sm:gap-3 sm:p-1.5">
+      <div className="h-8 w-2 rounded-full bg-linear-to-b from-cyan-500 to-violet-600 sm:h-9"></div>
       <input
         type="checkbox"
         className="grid h-5 w-5 place-items-center cursor-pointer accent-[#07ff30]"

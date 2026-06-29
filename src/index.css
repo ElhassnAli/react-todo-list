@@ -45,8 +45,8 @@ body {
   padding: 0.75rem;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   body {
     padding: 2rem;
   }
-}
+} */
