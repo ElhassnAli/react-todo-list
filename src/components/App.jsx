@@ -12,8 +12,8 @@ export default function App() {
   function handleTaskDone(taskId) {
     setTasks((tasks) =>
       tasks.map((task) =>
-        task.id === taskId ? { ...task, done: !task.done } : task
-      )
+        task.id === taskId ? { ...task, done: !task.done } : task,
+      ),
     );
   }
   useEffect(() => {
@@ -27,8 +27,8 @@ export default function App() {
     if (value) {
       setTasks((tasks) =>
         tasks.map((task) =>
-          task.id === taskId ? { ...task, name: value } : task
-        )
+          task.id === taskId ? { ...task, name: value } : task,
+        ),
       );
     }
   }
@@ -58,7 +58,7 @@ export default function App() {
     // Apply search filter
     if (querySearch.trim()) {
       filtered = filtered.filter((task) =>
-        task.name.toLowerCase().includes(querySearch.toLowerCase())
+        task.name.toLowerCase().includes(querySearch.toLowerCase()),
       );
     }
 
@@ -67,7 +67,7 @@ export default function App() {
   const filteredTasks = getFilteredTasks();
 
   return (
-    <main className="app">
+    <main className="mx-auto flex w-full max-w-5xl flex-col gap-4 rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] p-3 shadow-glow backdrop-blur-[8px] md:grid md:grid-cols-[minmax(0,360px)_minmax(0,1fr)] md:gap-6 md:p-8 lg:max-w-6xl">
       <Panel tasks={tasks} onSetTasks={setTasks} onClear={clearAllTasks} />
       <TasksList
         tasks={filteredTasks}

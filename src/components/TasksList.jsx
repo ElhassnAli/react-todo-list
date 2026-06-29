@@ -11,7 +11,7 @@ export default function TasksList({
   onEditTask,
 }) {
   return (
-    <section className="list-card">
+    <section className="flex min-h-[320px] flex-col gap-3 rounded-[16px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01))] p-3 md:p-5">
       <Header onQuerySearch={onQuerySearch} querySearch={querySearch} />
       <AllTasks
         tasks={tasks}
@@ -31,19 +31,13 @@ export default function TasksList({
 }
 function Header({ querySearch, onQuerySearch }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <h2 id="list-title" style={{ margin: 0 }}>
+    <div className="flex items-center justify-between">
+      <h2 id="list-title" className="m-0 text-lg font-semibold sm:text-xl">
         Your Tasks
       </h2>
-      <div className="controls">
+      <div className="flex items-center gap-2.5">
         <input
-          className="search"
+          className="w-full rounded-[10px] border border-white/10 bg-transparent px-3 py-2.5 text-inherit outline-none sm:min-w-[180px]"
           placeholder="Search tasks"
           value={querySearch}
           onChange={(e) => onQuerySearch(e.target.value)}
@@ -54,7 +48,7 @@ function Header({ querySearch, onQuerySearch }) {
 }
 function AllTasks({ tasks, onSetTasks, onDeleteTask, onEditTask }) {
   return (
-    <ul>
+    <ul className="m-0 flex w-full max-w-full flex-col gap-2.5 overflow-auto p-0">
       {tasks.map((task) => (
         <Task
           task={task}
@@ -69,21 +63,25 @@ function AllTasks({ tasks, onSetTasks, onDeleteTask, onEditTask }) {
 }
 function Task({ task, onSetTasks, onDeleteTask, onEditTask }) {
   return (
-    <li className="item">
-      <div className="handle"></div>
+    <li className="flex flex-wrap items-center gap-2 rounded-[12px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.015),rgba(255,255,255,0.01))] p-2 transition-transform duration-150 hover:-translate-y-0.5 sm:gap-3 sm:p-[6px]">
+      <div className="h-8 w-2 rounded-full bg-gradient-to-b from-cyan-500 to-violet-600 sm:h-9"></div>
       <input
         type="checkbox"
-        className="check"
+        className="grid h-5 w-5 place-items-center cursor-pointer accent-[#07ff30]"
         checked={task.done}
         onChange={() => {
           onSetTasks(task.id);
         }}
       />
-      <div className={`title ${task.done ? "done" : ""}`}>{task.name}</div>
-      <div className="meta">{task.date}</div>
-      <div className="actions">
+      <div
+        className={`flex-1 text-sm ${task.done ? "text-white/50 line-through" : ""}`}
+      >
+        {task.name}
+      </div>
+      <div className="text-[12px] text-white/65">{task.date}</div>
+      <div className="flex gap-0.5">
         <button
-          className="icon-btn"
+          className="rounded-lg border-none bg-transparent p-2 text-white/65 hover:bg-white/10"
           title="Delete"
           onClick={() => {
             onDeleteTask(task.id);
@@ -92,7 +90,7 @@ function Task({ task, onSetTasks, onDeleteTask, onEditTask }) {
           🗑
         </button>
         <button
-          style={{ background: "transparent", border: "none" }}
+          className="rounded-lg border-none bg-transparent p-2 text-white/65 hover:bg-white/10"
           title="Edit"
           onClick={() => {
             onEditTask(task.id);
@@ -107,23 +105,35 @@ function Task({ task, onSetTasks, onDeleteTask, onEditTask }) {
 
 function Empty() {
   return (
-    <div className="empty" id="empty">
+    <div
+      className="grid place-items-center px-9 py-2.5 text-[15px] text-white/65"
+      id="empty"
+    >
       No tasks yet — add something you care about.
     </div>
   );
 }
 function Footer({ showAll, showActive, showDone, filter }) {
   return (
-    <div className="footer">
+    <div className="flex flex-col gap-2 border-t border-white/10 pt-2 text-sm text-white/65 sm:flex-row sm:items-center sm:justify-between">
       <div>Showing {filter}</div>
       <div>
-        <button className="icon-btn" onClick={showAll}>
+        <button
+          className="rounded-lg border-none bg-transparent p-2 text-white/65 hover:bg-white/10"
+          onClick={showAll}
+        >
           All
         </button>
-        <button className="icon-btn" onClick={showActive}>
+        <button
+          className="rounded-lg border-none bg-transparent p-2 text-white/65 hover:bg-white/10"
+          onClick={showActive}
+        >
           Active
         </button>
-        <button className="icon-btn" onClick={showDone}>
+        <button
+          className="rounded-lg border-none bg-transparent p-2 text-white/65 hover:bg-white/10"
+          onClick={showDone}
+        >
           Done
         </button>
       </div>
